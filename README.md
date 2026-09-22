@@ -113,7 +113,25 @@ It's important to note, for this lab, the user only needed to **list and read ob
 
 Instead if relying on just the policy configuration, I instead tested the permissions to verify what the IAM user could actually do.
 
-I created a disposable object named `delete-test.txt` alongside the original `test.txt`. This allowed destructive permissions to be tested without risking the original test object.
+I created a disposable object named `delete-test.txt` alongside the original `test.txt`. This let me test destructive permissions without risking the actual test object.
+
+<img width="391" height="393" alt="S8" src="https://github.com/user-attachments/assets/cf810cf4-219a-4422-bfe1-1b4334dab1b2" />
+
+^ Created a disposable delete-test.txt object alongside the original test.txt object to safely test whether the overprivileged IAM identity can perform unauthorized delete operations. 
+
+### Verifying CLI Identity
+
+The AWS CLI was configured to authenticate as `cloud-security-user`. Before testing S3 permissions, I used AWS STS to verify that the CLI session was operating as the intended IAM identity.
+
+<img width="368" height="354" alt="S9" src="https://github.com/user-attachments/assets/6f2759a7-c9cc-47bf-87ba-317196983a90" />
+
+This ensured that the following permission tests represented the permissions of `cloud-security-user`, rather than another AWS identity.
+
+### Testing S3 Access
+
+I first tested whether the user could list objects in `cloud-iam-lab`.
+
+<img width="367" height="164" alt="S10" src="https://github.com/user-attachments/assets/9460bae2-ef6b-45ef-a8d6-2f072280bc5b" />
 
 
 
