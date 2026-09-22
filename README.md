@@ -67,6 +67,23 @@ To simulate a common cloud security problem, I intentionally assigned the AWS-ma
 
 ^ Overprivileged IAM Configuration: Created a test IAM identity with the AWS-managed AmazonS3FullAccess policy to simulate excessive cloud permissions before applying least privilege. 
 
+### Why is this a security problem?
+
+`AmazonS3FullAccess` provides broad permissions to Amazon S3. This means the test identity receives significantly more access than would be necessary for a user whose job only requires viewing data.
+
+For example, an overprivileged identity may be able to:
+
+- List objects
+- Read objects
+- Upload/modify objects
+- Delete objects
+- Perform other S3 administrative operations
+
+^ **This essentially violated the **principle of least privilege** which states that an identity should only receive the permissions needed to perform required tasks.  
+
+So instead of just assuming the permissions were excessive, the next step was to **test the IAM identity through the AWS CLI and verify what actions it could actually perform** 
+
+
 
 
 
