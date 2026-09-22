@@ -204,7 +204,7 @@ After:
 - Delete objects: ❌ Denied
 - Broad S3 access: ❌ Removed
 
-The next step was to validate that the new policy still allowed legitimate operations while preventing unnecessary destructive actions.
+The next step was to ensure that the new policy still allowed legitimate operations while preventing unnecessary actions.
 
 
 
