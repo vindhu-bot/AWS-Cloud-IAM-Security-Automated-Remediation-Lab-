@@ -83,6 +83,26 @@ For example, an overprivileged identity may be able to:
 
 So instead of just assuming the permissions were excessive, the next step was to **test the IAM identity through the AWS CLI and verify what actions it could actually perform** 
 
+## Identifying Excessive IAM Permissions
+
+After creating the `cloud-security-user`, I reviewed the AWS-managed `AmazonS3FullAccess` policy that had been intentionally assigned to the user.
+
+The policy contained the following permissions:
+
+```json
+{
+  "Effect": "Allow",
+  "Action": [
+    "s3:*",
+    "s3-object-lambda:*"
+  ],
+  "Resource": "*"
+}
+```
+<img width="384" height="425" alt="S7" src="https://github.com/user-attachments/assets/a7c7b9d0-22da-4b1e-bd11-b4d7b1d23ef5" />
+
+1. **s3:*** --> wildcard allows all Amazon S3 actions
+2. **Resource: "*"** --> applies those actions broadly to S3 resources supported by the actions
 
 
 
