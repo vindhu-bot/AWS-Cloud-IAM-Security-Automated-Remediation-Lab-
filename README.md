@@ -47,4 +47,6 @@ cloud-iam-lab
 │
 └── test.txt
 ```
+This object will let me safely test whether a specific IAM identity would be able to list, read, or delete objects from the bucket.
 
+### Baseline Configuration 
