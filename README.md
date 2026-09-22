@@ -26,4 +26,19 @@ Upon creation I made sure the bucket was configured with **ACLs disabled** and *
 ### Secure S3 Configuration 
 <img width="389" height="361" alt="S1" src="https://github.com/user-attachments/assets/149075a4-ad86-4379-af85-159cea6e3d38" /> <img width="380" height="281" alt="S2" src="https://github.com/user-attachments/assets/4cca6e54-f28b-43be-a6d3-a5ee232fcdcd" />
 
+The initial security configuration consisted of: 
+- **ACL's disabled**
+- **Public Access Blocked**
+- **No public bucket policy**
+- **No sensitive data**
 
+This was a good starting point/baseline which could later be compared to insecure configurations(intentional for lab purpose). 
+
+### Develop a test object 
+
+I uploaded a dummy text file "text.txt" to the bucket. The file contained useless writing so it could be used to test the S3 permissions. 
+
+
+<img width="377" height="279" alt="S3" src="https://github.com/user-attachments/assets/dffff05b-73f8-45d3-809f-1fb8d776fe48" /> <img width="377" height="320" alt="S4" src="https://github.com/user-attachments/assets/f85702e4-a1e8-4821-ab99-4383048d8039" />
+
+ 
