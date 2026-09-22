@@ -104,6 +104,7 @@ The policy contained the following permissions:
 1. **`s3:*`*** --> wildcard allows all Amazon S3 actions
 2. **`Resource: "*"`** --> applies those actions broadly to S3 resources supported by the actions
 
-
+It's important to note, for this lab, the user only needed to **list and read objects from one specific S3 bucket**. Therefore, `AmazonS3FullAccess` provided significantly more access than necessary.
+   ^ This created the overprivileged condition that I wanted to test and remediate.
 
 
