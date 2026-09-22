@@ -188,12 +188,21 @@ The original `AmazonS3FullAccess` policy was removed so that the user would only
 
 ### Before vs. After
 
-| S3 Permission | Before | After |
-|---|---|---|
-| List objects | ✅ Allowed | ✅ Allowed |
-| Read objects | ✅ Allowed | ✅ Allowed |
-| Delete objects | ✅ Allowed | ❌ Denied |
-| Broad S3 access | ✅ Allowed | ❌ Removed |
+Before:
+
+List objects: ✅ Allowed
+Read objects: ✅ Allowed
+Delete objects: ✅ Allowed
+Broad S3 access: ✅ Allowed
+
+After replacing the policy with the custom read-only policy:
+
+After:
+
+List objects: ✅ Allowed
+Read objects: ✅ Allowed
+Delete objects: ❌ Denied
+Broad S3 access: ❌ Removed
 
 The next step was to validate that the new policy still allowed legitimate operations while preventing unnecessary destructive actions.
 
