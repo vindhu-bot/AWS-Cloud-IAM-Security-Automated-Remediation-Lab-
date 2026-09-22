@@ -182,10 +182,20 @@ The policy was also scoped specifically to the `cloud-iam-lab` bucket and its ob
 
 <img width="389" height="380" alt="S13" src="https://github.com/user-attachments/assets/460f8e61-2b50-42a6-b35b-ccedc25fd343" />
 
+The new policy was created and then attached to `cloud-security-user`.
 
+The original `AmazonS3FullAccess` policy was removed so that the user would only work with the new restricted permissions.
 
+### Before vs. After
 
+| S3 Permission | Before | After |
+|---|---|---|
+| List objects | ✅ Allowed | ✅ Allowed |
+| Read objects | ✅ Allowed | ✅ Allowed |
+| Delete objects | ✅ Allowed | ❌ Denied |
+| Broad S3 access | ✅ Allowed | ❌ Removed |
 
+The next step was to validate that the new policy still allowed legitimate operations while preventing unnecessary destructive actions.
 
 
 
