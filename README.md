@@ -34,9 +34,9 @@ The initial security configuration consisted of:
 
 This was a good starting point/baseline which could later be compared to insecure configurations(intentional for lab purpose). 
 
-### Develop a test object 
+### Create a test object 
 
-I uploaded a dummy text file "text.txt" to the bucket. The file contained useless writing so it could be used to test the S3 permissions. 
+I uploaded a dummy text file "text.txt" to the bucket. The file contained non-sensitive writing so it could be used to test the S3 permissions. 
 
 
 <img width="377" height="279" alt="S3" src="https://github.com/user-attachments/assets/dffff05b-73f8-45d3-809f-1fb8d776fe48" /> <img width="377" height="320" alt="S4" src="https://github.com/user-attachments/assets/f85702e4-a1e8-4821-ab99-4383048d8039" />
