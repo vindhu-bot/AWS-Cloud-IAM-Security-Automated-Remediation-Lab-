@@ -133,12 +133,21 @@ I first tested whether the user could list objects in `cloud-iam-lab`.
 
 <img width="367" height="164" alt="S10" src="https://github.com/user-attachments/assets/9460bae2-ef6b-45ef-a8d6-2f072280bc5b" />
 
+^ The request succeeded, confirming that the IAM user could access and list objects in the bucket.
 
+Next, I attempted to delete the disposable `delete-test.txt` object.
 
+<img width="409" height="116" alt="S11" src="https://github.com/user-attachments/assets/7ab461f4-4ab5-4b5f-a4de-0afb3b72d35e" />
 
+The deletion worked 
 
+**What was found:** The `cloud-security-user` was had access to destructive S3 permissions that were unnecessary for its intended read-only role.
 
+This demonstrated the risk of assigning broad policies without limiting the users permissions to the actions and resources actually required.
 
+## Implementing Least Privilege
+
+To remediate the excessive permissions, I created a customer-managed IAM policy named: `Cloud-IAM-Lab-Read-ListOnly`
 
 
 
