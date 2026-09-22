@@ -149,14 +149,38 @@ This demonstrated the risk of assigning broad policies without limiting the user
 
 To remediate the excessive permissions, I created a customer-managed IAM policy named: `Cloud-IAM-Lab-Read-ListOnly`
 
+Instead of allowing all S3 actions, the new policy only allowed the operations needed by the test user. These consisted of:
 
+- `s3:ListBucket` — allows the user to list objects in `cloud-iam-lab`
+- `s3:GetObject` — allows the user to read objects stored in the bucket
 
+The policy was also scoped specifically to the `cloud-iam-lab` bucket and its objects.
 
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListLabBucket",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::cloud-iam-lab"
+    },
+    {
+      "Sid": "ReadLabObjects",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::cloud-iam-lab/*"
+    }
+  ]
+}
+```
 
+<img width="392" height="305" alt="S11" src="https://github.com/user-attachments/assets/a76d7f44-e7c6-4209-b80b-ee301e5ac57e" />
 
+<img width="394" height="299" alt="S12" src="https://github.com/user-attachments/assets/2fb50358-c0d9-4841-9eb2-9871184621ff" />
 
-
-
+<img width="389" height="380" alt="S13" src="https://github.com/user-attachments/assets/460f8e61-2b50-42a6-b35b-ccedc25fd343" />
 
 
 
