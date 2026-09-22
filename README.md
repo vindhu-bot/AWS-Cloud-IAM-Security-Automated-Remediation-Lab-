@@ -50,3 +50,5 @@ cloud-iam-lab
 This object will let me safely test whether a specific IAM identity would be able to list, read, or delete objects from the bucket.
 
 ### Baseline Configuration 
+
+Before beginning IAM testing, I verified that **Block Public Access remained enabled** and that the bucket had **no public bucket policy**.
