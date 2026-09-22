@@ -18,3 +18,11 @@ This lab specifically focuses on two major components of cloud security:
 - **AWS System Manager Automation** --> Performed the automatic remediation
 - **PowerShell** --> Command line used for AWS CLI testing, and test permissions. 
 
+## Develop a Secure S3 Baseline 
+To start the lab I created an Amazon S3 bucket named 'cloud-iam-lab'. This bucket essentially was the protected cloud resource which was used for IAM permission testing and configuration monitoring.
+
+Upon creation I made sure the bucket was configured with **ACLs disabled** and **Block Public Access enabled** --> This basically developed a secure starting config before actually introducing any controlled security issues. 
+
+### Secure S3 Configuration 
+<img width="389" height="361" alt="S1" src="https://github.com/user-attachments/assets/149075a4-ad86-4379-af85-159cea6e3d38" />
+
