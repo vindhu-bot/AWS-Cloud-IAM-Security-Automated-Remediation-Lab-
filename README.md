@@ -11,3 +11,10 @@ This lab specifically focuses on two major components of cloud security:
 ### Workflow of Lab 
 <img width="482" height="389" alt="visual" src="https://github.com/user-attachments/assets/c5c7824c-0ac7-47f3-a9cf-91e866f548f0" />
 
+## Technologies Used 
+- **AWS Identity and Access Management(IAM)** --> Managed identities and permissions
+- **Amazon S3** --> Cloud storage resource used for security testing purposes
+- **AWS Config** --> Monitored S3 configuration and compliance
+- **AWS System Manager Automation** --> Performed the automatic remediation
+- **PowerShell** --> Command line used for AWS CLI testing, and test permissions. 
+
