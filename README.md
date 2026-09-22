@@ -52,3 +52,21 @@ This object will let me safely test whether a specific IAM identity would be abl
 ### Baseline Configuration 
 
 Before beginning IAM testing, I verified that **Block Public Access remained enabled** and that the bucket had **no public bucket policy**.
+
+<img width="397" height="373" alt="S5" src="https://github.com/user-attachments/assets/2e1b8750-4189-4474-9246-c8981901975d" />
+
+**Result:** The S3 bucket was established in a secure state and was ready for controlled IAM security testing.
+
+## Simulating an Overprivileged IAM Identity
+
+With the S3 environment established, I created a test IAM user named `cloud-security-user`.
+
+To simulate a common cloud security problem, I intentionally assigned the AWS-managed `AmazonS3FullAccess` policy to the user.
+
+<img width="358" height="341" alt="S6" src="https://github.com/user-attachments/assets/64692689-fb94-4294-aba7-e48aed78c255" />
+
+^ Overprivileged IAM Configuration: Created a test IAM identity with the AWS-managed AmazonS3FullAccess policy to simulate excessive cloud permissions before applying least privilege. 
+
+
+
+
