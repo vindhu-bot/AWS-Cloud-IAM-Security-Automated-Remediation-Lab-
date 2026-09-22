@@ -214,21 +214,37 @@ After:
 
 The next step was to ensure that the new policy still allowed legitimate operations while preventing unnecessary actions.
 
+### Validating Least-Privilege Access
 
+After replacing `AmazonS3FullAccess` with the custom least-privilege policy, I tested the IAM user again through the AWS CLI.
 
+^ **The user was still able to list the contents of `cloud-iam-lab` and download `test.txt`, confirming that the permissions required for normal read operations still worked.**
 
+<img width="377" height="398" alt="S16" src="https://github.com/user-attachments/assets/7a6d0f61-1413-4bee-a4f2-8a90f8bbf243" />
 
+ - List worked 
 
+ <img width="317" height="232" alt="S18" src="https://github.com/user-attachments/assets/f4dfa97f-69c4-4d26-a77b-663a080f6561" />
 
+ - Download worked 
 
+**The final test attempted to delete an S3 object.**
 
+<img width="398" height="156" alt="S19" src="https://github.com/user-attachments/assets/a67da8a2-5705-4311-a778-c4e8e75f836c" />
 
+^ AWS returned `AccessDenied` because the new IAM policy did not grant the `s3:DeleteObject` permission.
 
+**Result:** The user kept the required list and read permissions while the unnecessary access was removed.
 
+Demonstrated --> principle of **least privilege** by providing an identity with only the permissions required to perform its intended role.
 
+## Monitoring S3 Security with AWS Config
 
+IAM least privilege protects against excessive **identity permissions**, BUT there's another  security risk -->  **the S3 bucket itself could become misconfigured**.
 
+To address this, I configured **AWS Config** to continuously monitor the configuration of Amazon S3 bucket resources.
 
+AWS Config records configuration changes and evaluates resources against security rules, allowing insecure configurations to be detected.
 
 
 
