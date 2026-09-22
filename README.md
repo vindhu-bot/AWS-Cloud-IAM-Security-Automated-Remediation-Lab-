@@ -41,4 +41,10 @@ I uploaded a dummy text file "text.txt" to the bucket. The file contained non-se
 
 <img width="377" height="279" alt="S3" src="https://github.com/user-attachments/assets/dffff05b-73f8-45d3-809f-1fb8d776fe48" /> <img width="377" height="320" alt="S4" src="https://github.com/user-attachments/assets/f85702e4-a1e8-4821-ab99-4383048d8039" />
 
- 
+The test environment was now: 
+```text
+cloud-iam-lab
+│
+└── test.txt
+```
+
