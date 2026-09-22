@@ -182,7 +182,15 @@ The policy was also scoped specifically to the `cloud-iam-lab` bucket and its ob
 
 <img width="389" height="380" alt="S13" src="https://github.com/user-attachments/assets/460f8e61-2b50-42a6-b35b-ccedc25fd343" />
 
-The new policy was created and then attached to `cloud-security-user`.
+### The new policy was created and then attached to `cloud-security-user`.
+
+<img width="376" height="404" alt="S14" src="https://github.com/user-attachments/assets/73444516-2e51-4d24-bc4b-2c8eadef5711" />
+
+<img width="377" height="398" alt="image" src="https://github.com/user-attachments/assets/00241049-a825-4bf3-877f-a2c932768ad3" />
+
+<img width="377" height="398" alt="S16" src="https://github.com/user-attachments/assets/128fce0b-2a8d-4fcb-90a1-c30956894fb9" />
+
+
 
 The original `AmazonS3FullAccess` policy was removed so that the user would only work with the new restricted permissions.
 
