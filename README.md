@@ -331,42 +331,13 @@ I created a dedicated IAM role named:
 
 I then assigned the permissions required for the automation to inspect and modify S3 Public Access Block settings.
 
+<img width="376" height="232" alt="S28" src="https://github.com/user-attachments/assets/c8d5f753-2905-47a3-9fc0-df144faea2c7" />
 
+The role was given permissions to inspect and modify S3 Public Access Block settings and to start and monitor the Systems Manager automation. These permissions allow the remediation process to make the security changes required to protect the S3 bucket.
 
+<img width="377" height="340" alt="S29" src="https://github.com/user-attachments/assets/6da71670-762c-4b71-ac3b-3bbf70bf0ef0" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The role was successfully created with AWS Systems Manager (ssm) as the trusted service. This allows Systems Manager to assume the role when it needs to perform the remediation.
 
 
 
