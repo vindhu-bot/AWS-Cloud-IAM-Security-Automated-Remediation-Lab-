@@ -238,7 +238,7 @@ After replacing `AmazonS3FullAccess` with the custom least-privilege policy, I t
 
 Demonstrated --> principle of **least privilege** by providing an identity with only the permissions required to perform its intended role.
 
-## Monitoring S3 Security with AWS Config
+## Part 2: Monitoring S3 Security with AWS Config
 
 After securing the IAM user's permissions, I moved from **identity security** to **resource configuration security**.
 
@@ -364,16 +364,45 @@ The affected S3 bucket is automatically passed to the remediation using its `RES
 
 **Result:** The automatic remediation workflow was now configured so that AWS Config could detect an insecure S3 configuration and trigger Systems Manager to restore the Public Access Block protections.
 
+### Validating Automatic Remediation 
 
+<img width="310" height="361" alt="S53" src="https://github.com/user-attachments/assets/9d313a68-2b27-4161-8da6-7132a4eef49a" />
 
+To test the completed remediation workflow, I purposefully disabled S3 Block Public Access again while the temporary public-read bucket policy was present.
 
+This recreated the insecure configuration and allowed AWS Config to detect the violation.
 
+<img width="304" height="331" alt="S54" src="https://github.com/user-attachments/assets/8b2845c3-8b78-4d86-9159-a166feba18d1" />
 
+AWS Config detected the insecure configuration and the configured Systems Manager remediation restored the S3 Block Public Access protections.
 
+The bucket returned to `Block all public access: On` without manually selecting the AWS Config `Remediate` action.
 
+**Result:** The automatic remediation workflow successfully restored the S3 public-access security controls.
 
+## Skills Demonstrated
 
+- AWS Identity and Access Management (IAM)
+- Principle of Least Privilege
+- IAM users, policies, and roles
+- Amazon S3 security and access controls
+- AWS CLI permission testing
+- AWS Config monitoring and compliance rules
+- Detection of insecure cloud configurations
+- AWS Systems Manager Automation
+- Automated security remediation
+- S3 Block Public Access configuration
+- JSON IAM policy analysis
+- Cloud security testing and validation
 
+## Key Takeaways
+
+This project demonstrated that cloud security involves both identity permissions and resource configuration.
+
+- Broad IAM permissions can give users unnecessary access and how least-privilege policies lessen that that risk. 
+- Securing IAM alone is not enough because cloud resources such as S3 buckets can still become insecure through configuration changes.
+- By combining AWS Config, Systems Manager Automation, and IAM roles, I built a workflow that could detect an insecure S3 configuration and automatically restore the required security controls.
+- The project also reinforced the importance of validating security controls through actual testing rather than assuming that a configuration works as intended.
 
 
 
