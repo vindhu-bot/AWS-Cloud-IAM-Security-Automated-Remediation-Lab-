@@ -240,11 +240,125 @@ Demonstrated --> principle of **least privilege** by providing an identity with 
 
 ## Monitoring S3 Security with AWS Config
 
-IAM least privilege protects against excessive **identity permissions**, BUT there's another  security risk -->  **the S3 bucket itself could become misconfigured**.
+After securing the IAM user's permissions, I moved from **identity security** to **resource configuration security**.
 
-To address this, I configured **AWS Config** to continuously monitor the configuration of Amazon S3 bucket resources.
+Even if IAM permissions follow least privilege, an S3 bucket can still become insecure if its configuration is changed. To detect these types of changes, I configured **AWS Config** to continuously monitor Amazon S3 bucket resources.
 
-AWS Config records configuration changes and evaluates resources against security rules, allowing insecure configurations to be detected.
+<img width="377" height="371" alt="S20" src="https://github.com/user-attachments/assets/eda5ea80-4f2e-4e77-abb5-93e844c115d1" />
+
+we told AWS Config "watch every S3 bucket in this account and log any time its configuration changes" (ACLs, policies, encryption settings, public access block settings, etc.)
+
+<img width="377" height="331" alt="S21" src="https://github.com/user-attachments/assets/f22ba147-5ec2-48f9-b133-d8a01ef1979c" />
+
+This is a pre-built compliance check AWS provides. It continuously evaluates every S3 bucket and flags any bucket whose ACL or bucket policy would allow public read access.
+
+<img width="407" height="356" alt="S22" src="https://github.com/user-attachments/assets/1d47ccad-0b57-4ede-81eb-6e98c5ce3e45" />
+
+Set up automated, ongoing surveillance for S3 buckets specifically to catch accidental or malicious public exposure(a rule that keeps re-evaluating as things change)
+
+## Simulating an S3 Public-Access Misconfiguration
+
+To verify that AWS Config could detect an insecure configuration, I purposefully introduced a controlled public-read condition into `cloud-iam-lab`.
+
+First, I disabled S3 Block Public Access for the test bucket.
+
+<img width="308" height="281" alt="S23" src="https://github.com/user-attachments/assets/3b909dcd-f19c-43e2-b5fb-269429bf6d87" />
+
+Later I added a temporary bucket policy allowing public read access to objects:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TemporaryPublicReadLabTest",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::cloud-iam-lab/*"
+    }
+  ]
+}
+```
+
+<img width="310" height="302" alt="S24" src="https://github.com/user-attachments/assets/17734b01-7b25-407a-9d02-dac2bbd728f9" />
+
+^ The use of the public-read policy and disabled Block Public Access intentionally created the insecure condition required for the detection test.
+
+### Detecting the Misconfiguration
+
+AWS Config evaluated the bucket against the `s3-bucket-public-read-prohibited` rule.
+
+<img width="374" height="272" alt="S25" src="https://github.com/user-attachments/assets/46057b87-fd44-4120-a94a-49f877a9cd5f" />
+
+^^ **Result: Noncompliant!!!**
+
+AWS Config correctly detected that the controlled S3 configuration violated the public-read security rule.
+
+This shows the **detection** portion of the lab. The next objective was to automatically correct the problem.
+
+## Configuring Automatic Remediation
+
+I configured **automatic remediation** for the AWS Config rule using AWS Systems Manager Automation.
+
+I selected the AWS-managed remediation document:
+
+`AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
