@@ -307,12 +307,29 @@ I selected the AWS-managed remediation document:
 
 <img width="374" height="313" alt="S26" src="https://github.com/user-attachments/assets/09d49b77-6815-44df-bc81-7b9f035fbc60" />
 
+- So what is "AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock"?
 
+It's a pre-built AWS script that flips 4 switches on a bucket, all of which basically mean "no public access, period":
+-Block public ACLs — stops anyone from adding a permission that opens the bucket to the public
+-Block public policies — stops anyone from attaching a bucket policy that opens it to the public
+-Ignore public ACLs — even if a public ACL somehow already exists on the bucket, AWS pretends it doesn't
+-Restrict public buckets — even if a public policy exists, AWS blocks the access anyway
 
+The remediation workflow was designed to operate as:
 
+**AWS Config detects the insecure S3 configuration → Systems Manager Automation runs the remediation → S3 Block Public Access is restored**
 
+### Creating a Remediation IAM Role
 
+Systems Manager requires authorization before it can modify the S3 bucket's security configuration.
 
+I created a dedicated IAM role named:
+
+`AWSConfig-S3-Remediation-Role` --> The role lets AWS Systems Manager to assume the role during the remediation process.
+
+<img width="407" height="331" alt="S27" src="https://github.com/user-attachments/assets/8768964c-744f-4d7a-8c0c-a483a5523ffa" />
+
+I then assigned the permissions required for the automation to inspect and modify S3 Public Access Block settings.
 
 
 
