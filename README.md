@@ -339,7 +339,19 @@ The role was given permissions to inspect and modify S3 Public Access Block sett
 
 The role was successfully created with AWS Systems Manager (ssm) as the trusted service. This allows Systems Manager to assume the role when it needs to perform the remediation.
 
+## Configuring Automatic Remediation
 
+After creating the remediation IAM role, I connected it to the AWS Config remediation action.
+
+I configured AWS Config to use the AWS-managed Systems Manager Automation runbook `AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock`.
+
+The `AWSConfig-S3-Remediation-Role` was added as the `AutomationAssumeRole`, allowing Systems Manager to assume the role and obtain the permissions needed to modify the S3 Public Access Block settings.
+
+<img width="368" height="278" alt="S50" src="https://github.com/user-attachments/assets/5cae420d-9e67-4773-b4d5-2d37d33f0646" />
+
+<img width="366" height="266" alt="S51" src="https://github.com/user-attachments/assets/a123f4d3-1139-4aa8-9740-d471aa012271" />
+
+<img width="365" height="299" alt="S52" src="https://github.com/user-attachments/assets/c8ce9076-d2f2-4af1-9978-5e81c4b684dd" />
 
 
 
