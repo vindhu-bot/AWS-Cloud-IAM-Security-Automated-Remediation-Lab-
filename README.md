@@ -353,6 +353,16 @@ The `AWSConfig-S3-Remediation-Role` was added as the `AutomationAssumeRole`, all
 
 <img width="365" height="299" alt="S52" src="https://github.com/user-attachments/assets/c8ce9076-d2f2-4af1-9978-5e81c4b684dd" />
 
+^^ The remediation was configured to enable all four S3 Public Access Block protections:
+
+- `RestrictPublicBuckets: true`
+- `BlockPublicAcls: true`
+- `IgnorePublicAcls: true`
+- `BlockPublicPolicy: true`
+
+The affected S3 bucket is automatically passed to the remediation using its `RESOURCE_ID`.
+
+**Result:** The automatic remediation workflow was now configured so that AWS Config could detect an insecure S3 configuration and trigger Systems Manager to restore the Public Access Block protections.
 
 
 
