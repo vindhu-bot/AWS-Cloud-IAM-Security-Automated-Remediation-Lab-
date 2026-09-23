@@ -305,6 +305,7 @@ I selected the AWS-managed remediation document:
 
 `AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock`
 
+<img width="374" height="313" alt="S26" src="https://github.com/user-attachments/assets/09d49b77-6815-44df-bc81-7b9f035fbc60" />
 
 
 
