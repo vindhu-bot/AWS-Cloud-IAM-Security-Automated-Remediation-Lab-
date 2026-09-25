@@ -232,7 +232,7 @@ After replacing `AmazonS3FullAccess` with the custom least-privilege policy, I t
 
 **The final test attempted to delete an S3 object.**
 
-<img width="398" height="156" alt="S19" src="https://github.com/user-attachments/assets/a67da8a2-5705-4311-a778-c4e8e75f836c" />
+<img width="398" height="156" alt="S19" src="https://github.com/user-attachments/assets/ae7a8f6d-abb3-4120-b669-95ac8c9358bd" />
 
 ^ AWS returned `AccessDenied` because the new IAM policy did not grant the `s3:DeleteObject` permission.
 
