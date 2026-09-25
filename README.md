@@ -66,7 +66,7 @@ To simulate a common cloud security problem, I intentionally assigned the AWS-ma
 <img width="358" height="332" alt="S6" src="https://github.com/user-attachments/assets/978f5109-dcef-4e3f-bc7c-1c2ac9763740" />
 
 
-^ Overprivileged IAM Configuration: Created a test IAM identity with the AWS-managed AmazonS3FullAccess policy to simulate excessive cloud permissions before applying least privilege. 
+Overprivileged IAM Configuration: Created a test IAM identity with the AWS-managed AmazonS3FullAccess policy to simulate excessive cloud permissions before applying least privilege. 
 
 ### Why is this a security problem?
 
@@ -80,7 +80,7 @@ For example, an overprivileged identity may be able to:
 - Delete objects
 - Perform other S3 administrative operations
 
-^ **This essentially violated the **principle of least privilege** which states that an identity should only receive the permissions needed to perform required tasks.  
+**This essentially violated the **principle of least privilege** which states that an identity should only receive the permissions needed to perform required tasks.  
 
 So instead of just assuming the permissions were excessive, the next step was to **test the IAM identity through the AWS CLI and verify what actions it could actually perform** 
 
@@ -108,7 +108,7 @@ The policy contained the following permissions:
 
 It's important to note, for this lab, the user only needed to **list and read objects from one specific S3 bucket**. Therefore, `AmazonS3FullAccess` provided significantly more access than necessary.
    
-   ^ This created the overprivileged condition that I wanted to test and remediate.
+    This created the overprivileged condition that I wanted to test and remediate.
 
 
 ## Testing the Overprivileged IAM User
@@ -119,7 +119,7 @@ I created a disposable object named `delete-test.txt` alongside the original `te
 
 <img width="391" height="393" alt="S8" src="https://github.com/user-attachments/assets/cf810cf4-219a-4422-bfe1-1b4334dab1b2" />
 
-^ Created a disposable delete-test.txt object alongside the original test.txt object to safely test whether the overprivileged IAM identity can perform unauthorized delete operations. 
+Created a disposable delete-test.txt object alongside the original test.txt object to safely test whether the overprivileged IAM identity can perform unauthorized delete operations. 
 
 ### Verifying CLI Identity
 
@@ -135,7 +135,7 @@ I first tested whether the user could list objects in `cloud-iam-lab`.
 
 <img width="367" height="164" alt="S10" src="https://github.com/user-attachments/assets/9460bae2-ef6b-45ef-a8d6-2f072280bc5b" />
 
-^ The request succeeded, confirming that the IAM user could access and list objects in the bucket.
+ The request succeeded, confirming that the IAM user could access and list objects in the bucket.
 
 Next, I attempted to delete the disposable `delete-test.txt` object.
 
@@ -234,7 +234,7 @@ After replacing `AmazonS3FullAccess` with the custom least-privilege policy, I t
 
 <img width="398" height="156" alt="S19" src="https://github.com/user-attachments/assets/ae7a8f6d-abb3-4120-b669-95ac8c9358bd" />
 
-^ AWS returned `AccessDenied` because the new IAM policy did not grant the `s3:DeleteObject` permission.
+ AWS returned `AccessDenied` because the new IAM policy did not grant the `s3:DeleteObject` permission.
 
 **Result:** The user kept the required list and read permissions while the unnecessary access was removed.
 
@@ -285,7 +285,7 @@ Later I added a temporary bucket policy allowing public read access to objects:
 
 <img width="310" height="302" alt="S24" src="https://github.com/user-attachments/assets/17734b01-7b25-407a-9d02-dac2bbd728f9" />
 
-^ The use of the public-read policy and disabled Block Public Access intentionally created the insecure condition required for the detection test.
+The use of the public-read policy and disabled Block Public Access intentionally created the insecure condition required for the detection test.
 
 ### Detecting the Misconfiguration
 
@@ -293,7 +293,7 @@ AWS Config evaluated the bucket against the `s3-bucket-public-read-prohibited` r
 
 <img width="374" height="272" alt="S25" src="https://github.com/user-attachments/assets/46057b87-fd44-4120-a94a-49f877a9cd5f" />
 
-^^ **Result: Noncompliant!!!**
+ **Result: Noncompliant!!!**
 
 AWS Config correctly detected that the controlled S3 configuration violated the public-read security rule.
 
@@ -356,7 +356,7 @@ The `AWSConfig-S3-Remediation-Role` was added as the `AutomationAssumeRole`, all
 
 
 
-^^ The remediation was configured to enable all four S3 Public Access Block protections:
+The remediation was configured to enable all four S3 Public Access Block protections:
 
 - `RestrictPublicBuckets: true`
 - `BlockPublicAcls: true`
