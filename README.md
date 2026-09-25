@@ -178,7 +178,7 @@ The policy was also scoped specifically to the `cloud-iam-lab` bucket and its ob
 }
 ```
 
-<img width="392" height="305" alt="S11" src="https://github.com/user-attachments/assets/a76d7f44-e7c6-4209-b80b-ee301e5ac57e" />
+<img width="392" height="295" alt="S11" src="https://github.com/user-attachments/assets/6f6745c3-9b4a-4efa-8ab5-ef495785a00f" />
 
 <img width="394" height="299" alt="S12" src="https://github.com/user-attachments/assets/2fb50358-c0d9-4841-9eb2-9871184621ff" />
 
