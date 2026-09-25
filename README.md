@@ -186,7 +186,7 @@ The policy was also scoped specifically to the `cloud-iam-lab` bucket and its ob
 
 ### The new policy was created and then attached to `cloud-security-user`.
 
-<img width="376" height="404" alt="S14" src="https://github.com/user-attachments/assets/73444516-2e51-4d24-bc4b-2c8eadef5711" />
+<img width="376" height="382" alt="S14" src="https://github.com/user-attachments/assets/df5f18f3-81da-43b7-a28e-80941d03b298" />
 
 <img width="377" height="398" alt="image" src="https://github.com/user-attachments/assets/00241049-a825-4bf3-877f-a2c932768ad3" />
 
