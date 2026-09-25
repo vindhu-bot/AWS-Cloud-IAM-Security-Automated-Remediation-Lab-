@@ -100,7 +100,8 @@ The policy contained the following permissions:
   "Resource": "*"
 }
 ```
-<img width="384" height="425" alt="S7" src="https://github.com/user-attachments/assets/a7c7b9d0-22da-4b1e-bd11-b4d7b1d23ef5" />
+<img width="384" height="405" alt="S7" src="https://github.com/user-attachments/assets/c641cbbf-9a65-43d9-b1f7-288be5d84513" />
+
 
 1. **`s3:*`*** --> wildcard allows all Amazon S3 actions
 2. **`Resource: "*"`** --> applies those actions broadly to S3 resources supported by the actions
