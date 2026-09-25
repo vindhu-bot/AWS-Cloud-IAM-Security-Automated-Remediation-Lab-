@@ -113,7 +113,7 @@ It's important to note, for this lab, the user only needed to **list and read ob
 
 ## Testing the Overprivileged IAM User
 
-Instead if relying on just the policy configuration, I instead tested the permissions to verify what the IAM user could actually do.
+Instead of relying on just the policy configuration, I instead tested the permissions to verify what the IAM user could actually do.
 
 I created a disposable object named `delete-test.txt` alongside the original `test.txt`. This let me test destructive permissions without risking the actual test object.
 
