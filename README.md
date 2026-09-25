@@ -254,7 +254,7 @@ we told AWS Config "watch every S3 bucket in this account and log any time its c
 
 This is a pre-built compliance check AWS provides. It continuously evaluates every S3 bucket and flags any bucket whose ACL or bucket policy would allow public read access.
 
-<img width="407" height="356" alt="S22" src="https://github.com/user-attachments/assets/1d47ccad-0b57-4ede-81eb-6e98c5ce3e45" />
+<img width="407" height="356" alt="S22" src="https://github.com/user-attachments/assets/4d0724af-ec18-486f-8d2b-9078e6db72a1" />
 
 Set up automated, ongoing surveillance for S3 buckets specifically to catch accidental or malicious public exposure(a rule that keeps re-evaluating as things change)
 
