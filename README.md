@@ -349,11 +349,12 @@ I configured AWS Config to use the AWS-managed Systems Manager Automation runboo
 
 The `AWSConfig-S3-Remediation-Role` was added as the `AutomationAssumeRole`, allowing Systems Manager to assume the role and obtain the permissions needed to modify the S3 Public Access Block settings.
 
-<img width="368" height="278" alt="S50" src="https://github.com/user-attachments/assets/5cae420d-9e67-4773-b4d5-2d37d33f0646" />
+<img width="368" height="278" alt="S50" src="https://github.com/user-attachments/assets/6a1073ba-eabc-45c4-8785-cfe0d89cf65b" />
 
-<img width="366" height="266" alt="S51" src="https://github.com/user-attachments/assets/a123f4d3-1139-4aa8-9740-d471aa012271" />
 
-<img width="365" height="299" alt="S52" src="https://github.com/user-attachments/assets/c8ce9076-d2f2-4af1-9978-5e81c4b684dd" />
+<img width="366" height="266" alt="S51" src="https://github.com/user-attachments/assets/de74a408-0c7c-48d1-9990-68d9d5971af0" />
+
+
 
 ^^ The remediation was configured to enable all four S3 Public Access Block protections:
 
