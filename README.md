@@ -221,9 +221,8 @@ The next step was to ensure that the new policy still allowed legitimate operati
 
 After replacing `AmazonS3FullAccess` with the custom least-privilege policy, I tested the IAM user again through the AWS CLI.
 
-^ **The user was still able to list the contents of `cloud-iam-lab` and download `test.txt`, confirming that the permissions required for normal read operations still worked.**
+**The user was still able to list the contents of `cloud-iam-lab` and download `test.txt`, confirming that the permissions required for normal read operations still worked.**
 
-<img width="377" height="398" alt="S16" src="https://github.com/user-attachments/assets/7a6d0f61-1413-4bee-a4f2-8a90f8bbf243" />
 
  - List worked 
 
