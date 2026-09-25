@@ -63,7 +63,8 @@ With the S3 environment established, I created a test IAM user named `cloud-secu
 
 To simulate a common cloud security problem, I intentionally assigned the AWS-managed `AmazonS3FullAccess` policy to the user.
 
-<img width="358" height="341" alt="S6" src="https://github.com/user-attachments/assets/64692689-fb94-4294-aba7-e48aed78c255" />
+<img width="358" height="332" alt="S6" src="https://github.com/user-attachments/assets/978f5109-dcef-4e3f-bc7c-1c2ac9763740" />
+
 
 ^ Overprivileged IAM Configuration: Created a test IAM identity with the AWS-managed AmazonS3FullAccess policy to simulate excessive cloud permissions before applying least privilege. 
 
